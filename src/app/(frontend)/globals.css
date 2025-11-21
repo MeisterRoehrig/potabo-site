@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    --radius: 0.625rem;
+    --container-padding: 2rem; /* Add this line */
+
+    --potabored: 9.69 100% 55.01%;
+    --background: 300 50% 100%;
+    --foreground: 0 0% 4%;
+
+    --card: 300 50% 100%;
+    --card-foreground: 0 0% 4%;
+
+    --popover: 300 50% 100%;
+    --popover-foreground: 0 0% 4%;
+
+    --primary: 330 0% 9%;
+    --primary-foreground: 240 0% 98%;
+
+    --secondary: 300 0% 96%;
+    --secondary-foreground: 330 0% 9%;
+
+    --muted: 300 0% 96%;
+    --muted-foreground: none 0% 45%;
+
+    --accent: 300 0% 96%;
+    --accent-foreground: 330 0% 9%;
+
+    --destructive: 357.18 100% 45%;
+    --destructive-foreground: 320 0% 90%;
+
+    --border: 320 0% 90%;
+    --input: 320 0% 90%;
+    --ring: 0 0% 63%;
+
+    --success: 142 100% 45%;
+    --warning: 42 100% 50%;
+    --error: 357.2 100% 45%;
+
+    --chart-1: 18.01 100% 48%;
+    --chart-2: 174.71 100% 28.96%;
+    --chart-3: 195.82 72% 23%;
+    --chart-4: 43.66 100% 50%;
+    --chart-5: 36.49 100% 50%;
+
+    --sidebar: 240 0% 98%;
+    --sidebar-foreground: 0 0% 4%;
+    --sidebar-primary: 330 0% 9%;
+    --sidebar-primary-foreground: 240 0% 98%;
+    --sidebar-accent: 300 0% 96%;
+    --sidebar-accent-foreground: 330 0% 9%;
+    --sidebar-border: 320 0% 90%;
+    --sidebar-ring: 0 0% 63%;
+  }
+
+  [data-theme='dark'] {
+    --radius: 0.625rem;
+    --container-padding: 2rem; /* Add this line for dark theme too */
+
+    --potabored: 9.69 100% 55.01%;
+    --background: 0 0% 4%;
+    --foreground: 240 0% 98%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 320 0% 90%;
+    --primary-foreground: 330 0% 9%;
+
+    --secondary: 320 0% 15%;
+    --secondary-foreground: 240 0% 98%;
+
+    --muted: 320 0% 15%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 320 0% 15%;
+    --accent-foreground: 240 0% 98%;
+
+    --destructive: 358.75 100% 70%;
+    --destructive-foreground: 320 0% 90%;
+
+    --border: 300 50% 100% / 0.1;
+    --input: 300 50% 100% / 0.15;
+    --ring: none 0% 45%;
+
+    --success: 142 100% 45%;
+    --warning: 42 100% 50%;
+    --error: 357.2 100% 45%;
+
+    --chart-1: 225.35 84% 49%;
+    --chart-2: 159.74 100% 37%;
+    --chart-3: 36.49 100% 50%;
+    --chart-4: 273.3 100% 64%;
+    --chart-5: 345.32 100% 56.01%;
+
+    --sidebar: 330 0% 9%;
+    --sidebar-foreground: 240 0% 98%;
+    --sidebar-primary: 225.35 84% 49%;
+    --sidebar-primary-foreground: 240 0% 98%;
+    --sidebar-accent: 320 0% 15%;
+    --sidebar-accent-foreground: 240 0% 98%;
+    --sidebar-border: 300 50% 100% / 0.1;
+    --sidebar-ring: 300 50% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}
