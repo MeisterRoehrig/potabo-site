@@ -7,7 +7,6 @@ import { fileURLToPath } from 'url'
 import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare'
 import { GetPlatformProxyOptions } from 'wrangler'
 import { r2Storage } from '@payloadcms/storage-r2'
-import { PayloadRequest } from 'payload'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -34,28 +33,6 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  jobs: {
-    access: {
-      run: ({ req }: { req: PayloadRequest }): boolean => {
-        // Allow logged in users to execute this endpoint (default)
-        if (req.user) return true
-
-        // If there is no logged in user, then check
-        // for the Vercel Cron secret to be present as an
-        // Authorization header:
-        const cronSecret = process.env.CRON_SECRET
-        if (!cronSecret) {
-          console.warn('CRON_SECRET not configured - cron jobs will be blocked')
-          return false
-        }
-
-        const authHeader = req.headers.get('authorization')
-        return authHeader === `Bearer ${cronSecret}`
-      },
-    },
-    tasks: [],
-  },
-
   // database-adapter-config-start
   db: sqliteD1Adapter({ binding: cloudflare.env.D1 }),
   // database-adapter-config-end
