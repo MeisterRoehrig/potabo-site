@@ -65,8 +65,7 @@
     "onlyBuiltDependencies": [
       "sharp",
       "esbuild",
-      "unrs-resolver",
-      "workerd"
+      "unrs-resolver"
     ]
   },
   "cloudflare": {
